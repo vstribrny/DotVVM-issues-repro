@@ -1,0 +1,4 @@
+﻿@viewModel BpGridViewAndMarkupControl.ViewModels.IMyMarkupControlViewMOdel, BpGridViewAndMarkupControl
+@baseType BpGridViewAndMarkupControl.Controls.MyMarkupControl, BpGridViewAndMarkupControl
+
+<dot:Button Text="Invoke" Click="{command: SetMyText()}" />

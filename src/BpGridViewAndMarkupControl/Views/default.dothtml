@@ -1,0 +1,38 @@
+﻿@viewModel BpGridViewAndMarkupControl.ViewModels.DefaultViewModel, BpGridViewAndMarkupControl
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div>
+        <label>MyText:</label>
+        <dot:TextBox Text="{value: MyText}" />
+    </div>
+
+    <h1>dot:GridView (works)</h1>
+    <dot:GridView DataSource="{value: DataSet}">
+        <Columns>
+            <dot:GridViewTextColumn HeaderText="Number" ValueBinding="{value: Number}" />
+            <dot:GridViewTemplateColumn HeaderText="Set MyText" >
+                <ContentTemplate>
+                    <cc:MyMarkupControl DataContext="{value:  _root}">
+
+                    </cc:MyMarkupControl>
+                </ContentTemplate>
+            </dot:GridViewTemplateColumn>
+        </Columns>
+    </dot:GridView>
+
+    <h1>bp:GridView (does not work)</h1>
+    <bp:GridView DataSource="{value: DataSet}">
+        <Columns>
+            <bp:GridViewTextColumn HeaderText="Number" Value="{value: Number}" />
+            <bp:GridViewTemplateColumn HeaderText="Set MyText">
+                <ContentTemplate>
+                    <cc:MyMarkupControl DataContext="{value:  _root}">
+
+                    </cc:MyMarkupControl>
+                </ContentTemplate>
+            </bp:GridViewTemplateColumn>
+        </Columns>
+    </bp:GridView>
+
+</dot:Content>
