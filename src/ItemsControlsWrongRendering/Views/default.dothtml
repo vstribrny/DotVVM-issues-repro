@@ -1,0 +1,44 @@
+﻿@viewModel BpComboBoxInItemsControl.ViewModels.DefaultViewModel, BpComboBoxInItemsControl
+@masterPage Views/MasterPage.dotmaster
+@service _commandService = BpComboBoxInItemsControl.ViewModels.DataSourceService
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div>
+        <label>DataSource:</label>
+        <dot:ComboBox DataSource="{value: DataSources}" SelectedValue="{value: DataSourceId}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}"
+                        SelectionChanged="{staticCommand: Items = _commandService.GetDataSource(DataSourceId)}" />
+        (select "DataSource 2" to reproduce the bug)
+    </div>
+
+    <h1>dot:Repeater</h1>
+    <dot:Repeater DataSource="{value: Items}">
+        <ItemTemplate>
+
+            <div>
+                {{value: Number}} :
+                <bp:ComboBox DataSource="{value: Numbers}" SelectedValue="{value: Number}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" AllowUnselect="false" />
+                <dot:ComboBox DataSource="{value: Numbers}" SelectedValue="{value: Number}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
+            </div>
+
+        </ItemTemplate>
+    </dot:Repeater>
+
+    <h1>dot:GridView</h1>
+    <dot:GridView DataSource="{value: Items}">
+        <Columns>
+            <dot:GridViewTextColumn HeaderText="Number" ValueBinding="{value: Number}" />
+            <dot:GridViewTemplateColumn HeaderText="bp:ComboBox">
+                <ContentTemplate>
+                    <bp:ComboBox DataSource="{value: Numbers}" SelectedValue="{value: Number}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" AllowUnselect="false" />
+                </ContentTemplate>
+            </dot:GridViewTemplateColumn>
+            <dot:GridViewTemplateColumn HeaderText="dot:ComboBox (works ok)">
+                <ContentTemplate>
+                    <dot:ComboBox DataSource="{value: Numbers}" SelectedValue="{value: Number}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
+                </ContentTemplate>
+            </dot:GridViewTemplateColumn>
+        </Columns>
+    </dot:GridView>
+
+
+</dot:Content>
