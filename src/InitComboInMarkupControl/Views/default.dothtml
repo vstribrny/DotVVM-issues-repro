@@ -1,0 +1,11 @@
+﻿@viewModel InitComboInMarkupControl.ViewModels.DefaultViewModel, InitComboInMarkupControl
+@masterPage Views/MasterPage.dotmaster
+
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <h1>cc:MyMarkupControl</h1>
+    <cc:MyMarkupControl DataSource="{value: Items}">
+
+    </cc:MyMarkupControl>
+</dot:Content>

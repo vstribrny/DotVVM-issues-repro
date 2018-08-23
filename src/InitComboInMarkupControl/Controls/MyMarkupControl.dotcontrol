@@ -1,0 +1,14 @@
+﻿@viewModel System.Object, mscorlib
+@baseType InitComboInMarkupControl.Controls.MyMarkupControl, InitComboInMarkupControl
+
+<dot:ComboBox DataSource="{controlProperty: ComboBoxDataSource}" 
+              SelectedValue="{controlProperty: SelectedNumber}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
+<hr />
+
+<dot:Repeater DataSource="{controlProperty: DataSource}">
+    <ItemTemplate>
+        Number: {{value: Number}}
+        <dot:ComboBox DataSource="{controlProperty: ComboBoxDataSource}"
+                      SelectedValue="{value: Number}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
+    </ItemTemplate>
+</dot:Repeater>
