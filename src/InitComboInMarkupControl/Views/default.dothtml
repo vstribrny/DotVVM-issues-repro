@@ -3,9 +3,6 @@
 
 
 <dot:Content ContentPlaceHolderID="MainContent">
-
     <h1>cc:MyMarkupControl</h1>
-    <cc:MyMarkupControl DataSource="{value: Items}">
-
-    </cc:MyMarkupControl>
+    <cc:MyMarkupControl />
 </dot:Content>

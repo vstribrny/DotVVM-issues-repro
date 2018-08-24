@@ -1,14 +1,16 @@
 ﻿@viewModel System.Object, mscorlib
 @baseType InitComboInMarkupControl.Controls.MyMarkupControl, InitComboInMarkupControl
 
-<dot:ComboBox DataSource="{controlProperty: ComboBoxDataSource}" 
-              SelectedValue="{controlProperty: SelectedNumber}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
-<hr />
+<div>
+    <div>
+        dot:TextBox:
+        <dot:TextBox ID="textbox1" Text="{controlProperty: MyText}" /> (TextBox.Text works)
+    </div>
+    <div>
 
-<dot:Repeater DataSource="{controlProperty: DataSource}">
-    <ItemTemplate>
-        Number: {{value: Number}}
-        <dot:ComboBox DataSource="{controlProperty: ComboBoxDataSource}"
-                      SelectedValue="{value: Number}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
-    </ItemTemplate>
-</dot:Repeater>
+        dot:ComboBox:
+        <dot:ComboBox ID="combobox" DataSource="{controlProperty: MyDataSource}" style="width:150px"
+                      SelectedValue="{controlProperty: MyNumber}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
+        (ComboBox.DataSource does not work)
+    </div>
+</div>

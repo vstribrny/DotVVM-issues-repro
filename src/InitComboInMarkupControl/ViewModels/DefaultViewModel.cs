@@ -31,5 +31,4 @@ namespace InitComboInMarkupControl.ViewModels
 
         public string Text { get; set; }
     }
-
 }
