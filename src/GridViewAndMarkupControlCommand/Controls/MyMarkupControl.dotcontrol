@@ -1,0 +1,5 @@
+﻿@viewModel GridViewAndMarkupControlCommand.ViewModels.Item, GridViewAndMarkupControlCommand
+@baseType GridViewAndMarkupControlCommand.Controls.MyMarkupControl, GridViewAndMarkupControlCommand
+
+<%--<dot:Button Text="Invoke" Click="{command: SetMyText()}" />--%>
+<dot:TextBox Text="{value: Number}" Changed="{controlCommand: Changed}" />

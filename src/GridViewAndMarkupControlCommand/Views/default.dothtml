@@ -1,0 +1,39 @@
+﻿@viewModel GridViewAndMarkupControlCommand.ViewModels.DefaultViewModel, GridViewAndMarkupControlCommand
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div>
+        <label>MyText:</label>
+        <dot:TextBox Text="{value: MyText}" />
+    </div>
+    Change value in InputBox:
+
+    <h1>dot:GridView (works)</h1>
+    <dot:GridView DataSource="{value: DataSet}" RenderSettings.Mode="Server">
+        <Columns>
+            <dot:GridViewTextColumn HeaderText="Number" ValueBinding="{value: Number}" />
+            <dot:GridViewTemplateColumn HeaderText="Editor" >
+                <ContentTemplate>
+                    <cc:MyMarkupControl Changed="{command: _root.OnValueChanged(_collection.Index)}">
+
+                    </cc:MyMarkupControl>
+                </ContentTemplate>
+            </dot:GridViewTemplateColumn>
+        </Columns>
+    </dot:GridView>
+
+    <h1>bp:GridView (does not work)</h1>
+    <bp:GridView DataSource="{value: DataSet}">
+        <Columns>
+            <bp:GridViewTextColumn HeaderText="Number" Value="{value: Number}" />
+            <bp:GridViewTemplateColumn HeaderText="Editor">
+                <ContentTemplate>
+                    <cc:MyMarkupControl Changed="{command: _root.OnValueChanged(_collection.Index)}">
+
+                    </cc:MyMarkupControl>
+                </ContentTemplate>
+            </bp:GridViewTemplateColumn>
+        </Columns>
+    </bp:GridView>
+
+</dot:Content>
