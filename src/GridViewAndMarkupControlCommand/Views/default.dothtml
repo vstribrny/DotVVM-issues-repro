@@ -1,39 +1,34 @@
 ﻿@viewModel GridViewAndMarkupControlCommand.ViewModels.DefaultViewModel, GridViewAndMarkupControlCommand
 @masterPage Views/MasterPage.dotmaster
+@service _commandService = GridViewAndMarkupControlCommand.ViewModels.MyService
 
 <dot:Content ContentPlaceHolderID="MainContent">
     <div>
         <label>MyText:</label>
-        <dot:TextBox Text="{value: MyText}" />
+        <dot:TextBox Text="{value: RootItem.MyText}" />
     </div>
-    Change value in InputBox:
+    Change value in InputBox and it should appear in "My Text" TextBox
 
-    <h1>dot:GridView (works)</h1>
-    <dot:GridView DataSource="{value: DataSet}" RenderSettings.Mode="Server">
+    <h1>dot:GridView</h1>
+    <dot:GridView DataSource="{value: MyDataSource}" RenderSettings.Mode="Server">
         <Columns>
             <dot:GridViewTextColumn HeaderText="Number" ValueBinding="{value: Number}" />
-            <dot:GridViewTemplateColumn HeaderText="Editor" >
+            <dot:GridViewTemplateColumn HeaderText="OnChanged - throws">
                 <ContentTemplate>
-                    <cc:MyMarkupControl Changed="{command: _root.OnValueChanged(_collection.Index)}">
+                    <cc:MyMarkupControl Changed="{staticCommand: _commandService.OnChanged(_this, _root.RootItem)}">
 
                     </cc:MyMarkupControl>
                 </ContentTemplate>
             </dot:GridViewTemplateColumn>
-        </Columns>
-    </dot:GridView>
 
-    <h1>bp:GridView (does not work)</h1>
-    <bp:GridView DataSource="{value: DataSet}">
-        <Columns>
-            <bp:GridViewTextColumn HeaderText="Number" Value="{value: Number}" />
-            <bp:GridViewTemplateColumn HeaderText="Editor">
+            <dot:GridViewTemplateColumn HeaderText="OnChangedHacked - works">
                 <ContentTemplate>
-                    <cc:MyMarkupControl Changed="{command: _root.OnValueChanged(_collection.Index)}">
+                    <cc:MyMarkupControl Changed="{staticCommand: _commandService.OnChangedHacked(_this, _root.RootItem)}">
 
                     </cc:MyMarkupControl>
                 </ContentTemplate>
-            </bp:GridViewTemplateColumn>
-        </Columns>
-    </bp:GridView>
+            </dot:GridViewTemplateColumn>
 
+        </Columns>
+    </dot:GridView>
 </dot:Content>

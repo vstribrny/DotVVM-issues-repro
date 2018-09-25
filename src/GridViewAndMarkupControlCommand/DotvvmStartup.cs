@@ -1,6 +1,7 @@
 ﻿	using DotVVM.Framework.Configuration;
 using DotVVM.Framework.ResourceManagement;
 using DotVVM.Framework.Routing;
+using GridViewAndMarkupControlCommand.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GridViewAndMarkupControlCommand
@@ -33,8 +34,8 @@ namespace GridViewAndMarkupControlCommand
         }
 		public void ConfigureServices(IDotvvmServiceCollection options)
         {
-		
-            options.AddBusinessPack();
+            options.Services.AddSingleton<MyService>();
+
             options.AddDefaultTempStorages("temp");
 		}
     }
