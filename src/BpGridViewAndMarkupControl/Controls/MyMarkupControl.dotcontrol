@@ -2,3 +2,4 @@
 @baseType BpGridViewAndMarkupControl.Controls.MyMarkupControl, BpGridViewAndMarkupControl
 
 <dot:Button Text="Invoke" Click="{command: SetMyText()}" />
+<dot:TextBox Changed="{controlCommand: Changed}" Text="" />

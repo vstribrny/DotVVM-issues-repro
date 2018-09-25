@@ -13,7 +13,7 @@
             <dot:GridViewTextColumn HeaderText="Number" ValueBinding="{value: Number}" />
             <dot:GridViewTemplateColumn HeaderText="Set MyText" >
                 <ContentTemplate>
-                    <cc:MyMarkupControl DataContext="{value:  _root}">
+                    <cc:MyMarkupControl DataContext="{value:  _root}" Changed="{command: _root.SetMyText()}" >
 
                     </cc:MyMarkupControl>
                 </ContentTemplate>
