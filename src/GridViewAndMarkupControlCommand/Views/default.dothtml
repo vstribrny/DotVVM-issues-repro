@@ -7,7 +7,7 @@
         <label>MyText:</label>
         <dot:TextBox Text="{value: RootItem.MyText}" />
     </div>
-    Change value in InputBox and it should appear in "My Text" TextBox
+    Change value in InputBox and it should appear in "My Text" TextBox (works now in DotVVM 2.3)
 
     <h1>dot:GridView</h1>
     <dot:GridView DataSource="{value: MyDataSource}" RenderSettings.Mode="Server">
