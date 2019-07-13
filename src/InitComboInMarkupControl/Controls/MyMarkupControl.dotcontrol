@@ -1,32 +1,32 @@
 ﻿@viewModel System.Object, mscorlib
 @baseType InitComboInMarkupControl.Controls.MyMarkupControl, InitComboInMarkupControl
 
-<div>
-    dot:TextBox:
-    <dot:TextBox ID="textbox1" Text="{controlProperty: MyText}" /> (TextBox.Text works)
+    <div>
+        dot:TextBox:
+        <dot:TextBox ID="textbox1" Text="{controlProperty: MyText}" /> (TextBox.Text works)
 
-    <hr />
+        <hr />
 
-    dot:Repeater:
-    <dot:Repeater DataSource="{controlProperty: MyDataSource}">
-        <ItemTemplate>
-            {{value: Id}}: {{value: Text}} |
-        </ItemTemplate>
-    </dot:Repeater>
-    (Repeater.DataSource works)
+        dot:Repeater:
+        <dot:Repeater DataSource="{controlProperty: MyDataSource}">
+            <ItemTemplate>
+                {{value: Id}}: {{value: Text}} |
+            </ItemTemplate>
+        </dot:Repeater>
+        (Repeater.DataSource works)
 
-    <hr />
+        <hr />
 
-    dot:ComboBox:
-    <dot:ComboBox ID="combobox" DataSource="{controlProperty: MyDataSource}" style="width:150px"
-                  SelectedValue="{controlProperty: MyNumber}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
-    (dot:ComboBox.DataSource does not work)
+        dot:ComboBox:
+        <dot:ComboBox ID="combobox" DataSource="{controlProperty: MyDataSource}" style="width:150px"
+                      SelectedValue="{controlProperty: MyNumber}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
+        (dot:ComboBox.DataSource does not work - works from DotVVM 2.3)
 
-    <hr />
+        <hr />
 
-    bp:ComboBox:
-    <bp:ComboBox ID="combobox2" DataSource="{controlProperty: MyDataSource}" style="width:150px"
-                 SelectedValue="{controlProperty: MyNumber}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
-    (bp:ComboBox.DataSource does not work)
+        bp:ComboBox:
+        <bp:ComboBox ID="combobox2" DataSource="{controlProperty: MyDataSource}" style="width:150px"
+                     SelectedValue="{controlProperty: MyNumber}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}" />
+        (bp:ComboBox.DataSource does not work - works from DotVVM 2.3)
 
-</div>
+    </div>
