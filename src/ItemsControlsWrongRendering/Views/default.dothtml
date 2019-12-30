@@ -7,7 +7,7 @@
         <label>DataSource:</label>
         <dot:ComboBox DataSource="{value: DataSources}" SelectedValue="{value: DataSourceId}" ItemTextBinding="{value: Text}" ItemValueBinding="{value: Id}"
                         SelectionChanged="{staticCommand: Items = _commandService.GetDataSource(DataSourceId)}" />
-        (select "DataSource 2" to reproduce the bug)
+        (select "DataSource 2" to reproduce the bug. It WORKS now in version 2.4)
     </div>
 
     <h1>dot:Repeater</h1>

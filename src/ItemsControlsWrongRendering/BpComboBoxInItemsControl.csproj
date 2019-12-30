@@ -22,10 +22,10 @@
         <None Remove="Views\MasterPage.dotmaster" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="DotVVM.BusinessPack" Version="2.0.0-preview11-final" />
-        <PackageReference Include="Microsoft.AspNetCore" Version="2.0.3" />
-        <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.3" />
-        <PackageReference Include="DotVVM.AspNetCore" Version="2.0.0" />
+        <PackageReference Include="DotVVM.BusinessPack" Version="2.4.0-trial" />
+        <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+        <PackageReference Include="DotVVM.AspNetCore" Version="2.4.0" />
         
     </ItemGroup>
     <ItemGroup>
